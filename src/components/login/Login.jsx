@@ -18,8 +18,7 @@ function Login() {
         sessionStorage.setItem("userUsername", token.profile.username);
         sessionStorage.setItem("userEmail", token.profile.email);
         sessionStorage.setItem("userBio", token.profile.bio);
-        //todo: profile picture url
-
+        sessionStorage.setItem("userProfilePicture", token.picture);  
         navigate("/Notebooks");
 
       }

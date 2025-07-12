@@ -1,0 +1,9 @@
+# node modules
+node_modules/
+
+# environment files
+.env*
+!.env.example  # si quieres subir un ejemplo sin secretos
+
+# build output (si aplicara)
+dist/

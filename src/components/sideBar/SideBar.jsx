@@ -2,7 +2,7 @@ import "./SideBar.css";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-function SideBar() {
+function SideBar({ onToggle }) { // Solo agregar esta prop
     const username = sessionStorage.getItem("userUsername");
     const email = sessionStorage.getItem("userEmail");
     const profilePicture = sessionStorage.getItem("userProfilePicture");
@@ -16,6 +16,10 @@ function SideBar() {
 
     const toggleSidebar = () => {
         setIsCollapsed(!isCollapsed);
+        // Solo agregar estas 3 líneas
+        if (onToggle) {
+            onToggle(!isCollapsed);
+        }
     }
 
     return (

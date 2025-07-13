@@ -3,4 +3,49 @@
   flex-direction: row;
   height: 100%;
 }
+.notebooks-header-conatainer{
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  padding: 0;
+}
+
+.notebooks-container {
+  margin-left: 6.3rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.notebooks-list {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 4rem;
+  width: 100%;
+  padding: 20px;
+}
+
+
+
+.notebooks-container {
+    margin-left: 6.3rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    transition: margin-left 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+
+.notebooks-container.sidebar-expanded {
+    margin-left: calc(252px + 6.3rem);
+}
+
+
+.notebooks-container.sidebar-collapsed {
+    margin-left: calc(54px + 6.3rem);
+}
 

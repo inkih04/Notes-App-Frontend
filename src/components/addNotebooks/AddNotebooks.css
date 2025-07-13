@@ -1,0 +1,44 @@
+.add-notebooks {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 1.2rem;
+    margin-right: 5rem;
+    background-color: #FAF15B;
+    box-shadow: 0 4px 4px 0 rgba(4, 4, 4, 0.08);
+    border-radius: 5px;
+    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+                color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+.add-notebooks:hover {
+    background-color: #FAF15B88;;
+    transform: translateX(4.5px);
+}
+
+.add-notebooks span {
+    font-size: 1.5rem;
+    font-weight: semibold;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.add-notebooks:hover span {
+    transform: scale(1.1);
+}
+
+
+.add-notebooks p {
+    font-size: 1.5rem;
+    color: #333;
+    margin-left: 0.3rem;
+    font-weight: semibold;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.add-notebooks:hover p {
+    transform: translateX(2.7px);
+}

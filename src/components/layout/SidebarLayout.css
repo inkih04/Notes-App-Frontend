@@ -1,0 +1,15 @@
+:root {
+    --sidebar-margin: calc(252px + 6.3rem);
+}
+
+.sidebar-layout {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar-content-wrapper {
+    margin-left: var(--sidebar-margin);
+    transition: margin-left 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    width: 100%;
+    overflow-x: hidden;
+}

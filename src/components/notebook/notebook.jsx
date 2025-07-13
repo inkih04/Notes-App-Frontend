@@ -46,7 +46,7 @@ function Notebook({ onNotebookClick, onEdit, onDelete, onShare }) {
         </div>
       </div>
       
-      <p>This is where the notebook content will be displayed.</p>
+      <p>This is where the notebook content will be displayed</p>
     </button>
   );
 }

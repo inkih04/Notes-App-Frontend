@@ -1,18 +1,12 @@
-import SideBar from "../components/sideBar/SideBar";
+import SidebarLayout from "../components/layout/SidebarLayout";
 import AddNotebooks from "../components/addNotebooks/AddNotebooks";
 import Notebook from "../components/notebook/notebook";
 import "../styles/NotebooksPage.css";
-import { useState } from "react"; // Solo agregar esta importación
 
 export default function NotebooksPage() {
-    // Solo agregar estas 2 líneas
-    const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
-    const handleSidebarToggle = (isCollapsed) => setSidebarCollapsed(isCollapsed);
-
     return (
-        <div className="notebooks-page">
-            <SideBar onToggle={handleSidebarToggle} /> {/* Solo agregar la prop */}
-            <div className={`notebooks-container ${sidebarCollapsed ? 'sidebar-collapsed' : 'sidebar-expanded'}`}> {/* Solo agregar las clases */}
+        <SidebarLayout>
+            <div className="notebooks-container">
                 <div className="notebooks-header-conatainer">
                     <div>
                         <h1>Notebooks</h1>
@@ -40,6 +34,6 @@ export default function NotebooksPage() {
                     <Notebook/>
                 </div>
             </div>
-        </div>
+        </SidebarLayout>
     );
 }

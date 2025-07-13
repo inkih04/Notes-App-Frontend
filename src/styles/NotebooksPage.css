@@ -15,7 +15,6 @@
 }
 
 .notebooks-container {
-  margin-left: 6.3rem;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -32,20 +31,11 @@
 
 
 .notebooks-container {
-    margin-left: 6.3rem;
     display: flex;
     flex-direction: column;
     width: 100%;
-    transition: margin-left 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 
-.notebooks-container.sidebar-expanded {
-    margin-left: calc(252px + 6.3rem);
-}
 
-
-.notebooks-container.sidebar-collapsed {
-    margin-left: calc(54px + 6.3rem);
-}
 

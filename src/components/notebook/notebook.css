@@ -12,6 +12,7 @@
     border: none;
     cursor: pointer;
     transition: all 0.2s ease;
+    max-width: 30rem;
 }
 
 .notebook:hover {
@@ -77,6 +78,11 @@
     margin: 0;
     padding: 0;
 }
+
+.shared-icon {
+  color: #2A2 !important;
+}
+
 
 
 @media (max-width: 480px) {

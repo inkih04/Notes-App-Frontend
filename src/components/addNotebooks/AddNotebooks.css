@@ -8,10 +8,13 @@
     background-color: #FAF15B;
     box-shadow: 0 4px 4px 0 rgba(4, 4, 4, 0.08);
     border-radius: 4.5px;
+    border: none;
+    cursor: pointer;
     transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
                 transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
                 color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .add-notebooks:hover {
     background-color: #FAF15B88;
     transform: translateX(4.05px); 
@@ -19,24 +22,26 @@
 
 .add-notebooks span {
     font-size: 1.35rem; 
-    font-weight: semibold;
-    color: #333;
+    font-weight: 600;
+    color: #111;
     margin: 0;
     padding: 0;
     transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
                 transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .add-notebooks:hover span {
     transform: scale(0.99); 
 }
 
 .add-notebooks p {
     font-size: 1.35rem; 
-    color: #333;
+    color: #222;
     margin-left: 0.27rem; 
-    font-weight: semibold;
+    font-weight: 400;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .add-notebooks:hover p {
     transform: translateX(2.43px); 
 }
@@ -47,3 +52,237 @@
     }
 }
 
+/*-------------------------------------------------------------------------------------------*/
+/* Modal Styles */
+.add-notebooks-modal {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    padding: 2rem;
+    border: none;
+    outline: none;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.add-notebook-modal-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding-bottom: 0.7rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.add-notebook-modal-title h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.add-notebook-modal-title button:hover {
+    color: #d22;
+}
+
+
+
+/* Form Styles */
+.add-notebooks-modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.add-notebooks-modal-form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.add-notebooks-modal-form-field label {
+    font-weight: 600;
+    color: #333;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.add-notebooks-modal-form-field input[type="text"],
+.add-notebooks-modal-form-field textarea {
+    padding: 0.75rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    font-family: inherit;
+    background-color: #f0e850;
+    color:#222;
+}
+
+.add-notebooks-modal-form-field input[type="text"]:focus,
+.add-notebooks-modal-form-field textarea:focus {
+    outline: none;
+    border-color: #FAF15B;
+    box-shadow: 0 0 0 3px rgba(250, 241, 91, 0.1);
+}
+
+.add-notebooks-modal-form-field textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Color Picker Styles */
+.color-picker-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.color-option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.color-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.color-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.color-option:hover .color-circle {
+    transform: scale(1.1);
+}
+
+.color-option input[type="radio"]:checked + .color-circle {
+    border-color: #333;
+    transform: scale(1.1);
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+.cancel-btn,
+.submit-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.cancel-btn {
+    background-color: #f5f5f5;
+    color: #666;
+}
+
+.cancel-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.submit-btn {
+    background-color: #FAF15B;
+    color: #333;
+}
+
+.submit-btn:hover {
+    background-color: #f0e850;
+}
+
+.submit-btn:disabled {
+    background-color: #e0e0e0;
+    color: #999;
+    cursor: not-allowed;
+}
+
+.cancel-btn:active,
+.submit-btn:active {
+    transform: translateY(1px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .add-notebooks-modal {
+        width: 95%;
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    .add-notebook-modal-title h1 {
+        font-size: 1.5rem;
+    }
+    
+    .color-picker-container {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.5rem;
+    }
+    
+    .color-circle {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .cancel-btn,
+    .submit-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .add-notebooks-modal {
+        padding: 1rem;
+    }
+    
+    .add-notebook-modal-title h1 {
+        font-size: 1.25rem;
+    }
+    
+    .color-picker-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .color-circle {
+        width: 30px;
+        height: 30px;
+    }
+}

@@ -22,16 +22,6 @@ export default function NotebooksPage() {
                     <Notebook/>
                     <Notebook/>
                     <Notebook/>
-                    <Notebook/>
-                    <Notebook/>
-                    <Notebook/>
-                    <Notebook/>
-                    <Notebook/>
-                    <Notebook/>
-                    <Notebook/>
-                    <Notebook/>
-                    <Notebook/>
-                    <Notebook/>
                 </div>
             </div>
         </SidebarLayout>

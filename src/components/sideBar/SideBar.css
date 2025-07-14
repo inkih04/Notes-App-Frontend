@@ -210,3 +210,10 @@
 .links-button:hover span {
     transform: scale(1.1);
 }
+
+@media (max-width: 950px) {
+    .sidebar {
+        display: none;
+    }
+
+}

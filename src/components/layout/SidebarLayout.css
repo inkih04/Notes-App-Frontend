@@ -13,3 +13,13 @@
     width: 100%;
     overflow-x: hidden;
 }
+
+@media (max-width: 950px) {
+    :root {
+        --sidebar-margin: 1rem !important;
+    }
+    
+    .sidebar {
+        display: none;
+    }
+}

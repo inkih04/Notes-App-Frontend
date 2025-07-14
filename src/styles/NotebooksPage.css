@@ -10,8 +10,8 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 20px;
   padding: 0;
+  gap: 3rem;
 }
 
 .notebooks-container {

@@ -3,23 +3,22 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 1rem 1.2rem;
-    margin-right: 5rem;
+    padding: 0.9rem 1.08rem;
+    margin-right: 4.5rem;
     background-color: #FAF15B;
     box-shadow: 0 4px 4px 0 rgba(4, 4, 4, 0.08);
-    border-radius: 5px;
+    border-radius: 4.5px;
     transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
                 transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
                 color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
 }
 .add-notebooks:hover {
-    background-color: #FAF15B88;;
-    transform: translateX(4.5px);
+    background-color: #FAF15B88;
+    transform: translateX(4.05px); 
 }
 
 .add-notebooks span {
-    font-size: 1.5rem;
+    font-size: 1.35rem; 
     font-weight: semibold;
     color: #333;
     margin: 0;
@@ -28,17 +27,23 @@
                 transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .add-notebooks:hover span {
-    transform: scale(1.1);
+    transform: scale(0.99); 
 }
 
-
 .add-notebooks p {
-    font-size: 1.5rem;
+    font-size: 1.35rem; 
     color: #333;
-    margin-left: 0.3rem;
+    margin-left: 0.27rem; 
     font-weight: semibold;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .add-notebooks:hover p {
-    transform: translateX(2.7px);
+    transform: translateX(2.43px); 
 }
+
+@media (max-width: 950px) {
+    .p-hidden {
+        display: none;
+    }
+}
+

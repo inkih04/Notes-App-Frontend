@@ -3,7 +3,7 @@ import { useSidebar } from '../../hooks/useSidebar';
 import "./SidebarLayout.css";
 
 const SidebarLayout = ({ children}) => { 
-    const { isCollapsed, toggleSidebar } = useSidebar();
+    const { isCollapsed, toggleSidebar} = useSidebar();
 
     return (
         <div className="sidebar-layout">

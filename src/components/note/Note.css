@@ -1,0 +1,76 @@
+
+.note-container {
+    background-color: #FAF15B;;
+    color: #333;
+    border-radius: 17px;
+    padding: 1.6rem;
+    max-width: 20rem;
+    min-width: 20rem;
+    box-shadow: 0 4px 4px 0 #0002;
+}
+.note-container:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.note-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0.4rem;
+    gap: 1rem;
+    border-bottom: 0.4rem solid #FAFAFA;
+}
+
+.note-header button {
+    padding: 0.2rem;
+    border-radius: 50%;
+    color: #999;
+    background-color: transparent;
+}
+
+.note-header button:hover {
+    background-color: #fff4;
+    transform: scale(1.1);
+    color: #4CDD50;
+}
+
+
+
+.note-header h2 {
+    color: #333;
+    margin: 0;
+    text-align: left;
+    flex: 1;
+    min-width: 0; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight:500;
+}
+
+
+.note-content {
+    margin-top: 1rem;
+
+}
+.note-content p {
+    text-align: left;
+    color: #444;
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+
+.note-footer {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: left;
+    margin-top: 1rem;
+
+}
+.note-footer p {
+    font-style: italic;
+    color: #444;
+}

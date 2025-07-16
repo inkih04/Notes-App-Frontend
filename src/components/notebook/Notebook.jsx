@@ -1,5 +1,5 @@
 import { deleteNotebook } from '../../api/deleteNotebook';
-import './notebook.css';
+import './Notebook.css';
 import EditNotebook from '../editNotebook/EditNotebook';
 import { useNavigate } from 'react-router-dom';
 

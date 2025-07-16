@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import SidebarLayout from "../components/layout/SidebarLayout";
 import AddNotebooks from "../components/addNotebooks/AddNotebooks";
-import Notebook from "../components/notebook/notebook";
+import Notebook from "../components/notebook/Notebook";
 import { getNotebooks } from "../api/getNotebooks";
 import "../styles/NotebooksPage.css";
 

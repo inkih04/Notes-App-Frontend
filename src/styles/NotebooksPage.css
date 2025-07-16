@@ -1,8 +1,4 @@
-.notebooks-page {
-  display: flex;
-  flex-direction: row;
-  height: 100%;
-}
+
 .notebooks-header-conatainer{
   margin-top: 4rem;
   display: flex;
@@ -28,16 +24,6 @@
   padding: 20px;
 }
 
-
-
-.notebooks-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-
-/* notebook.css */
 .notebook.updated {
   animation: fadeIn 0.3s ease-in;
 }

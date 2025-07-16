@@ -1,52 +1,55 @@
-import React from 'react';
+import { deleteNotebook } from '../../api/deleteNotebook';
 import './notebook.css';
+import EditNotebook from '../editNotebook/EditNotebook';
+import { useNavigate } from 'react-router-dom';
 
-function Notebook({name, description, color, id, isShared}) {
+function Notebook({name, description, color, id, isShared, onDelete, onEdit}) {
+  const navigate = useNavigate();
   
   const handleNotebookClick = () => {
-    if (onNotebookClick) {
-
-    }
+    navigate(`/notebooks/${id}`)
   };
 
-  const handleEdit = (e) => {
-    e.stopPropagation(); // Evita que se active el click del notebook
-    if (onEdit) {
-
-    }
+  const handleEdit = (editedNotebook) => {
+      onEdit(editedNotebook);
   };
 
-  const handleDelete = (e) => {
-    e.stopPropagation(); // Evita que se active el click del notebook
-    if (onDelete) {
-
+  const handleDelete = async(e) => {
+    e.stopPropagation(); 
+    const response = await deleteNotebook(id);
+    if (response) {
+      onDelete(id);
     }
+    e.stopPropagation();
   };
 
   const handleShare = (e) => {
-    e.stopPropagation(); // Evita que se active el click del notebook
-    if (onShare) {
-
-    }
+    e.stopPropagation(); 
+    e.stopPropagation();
   };
 
   return (
-    <button style={{backgroundColor: color}} className="notebook" onClick={handleNotebookClick}>
+    <button style={{backgroundColor: color}} type='button' className="notebook" onClick={handleNotebookClick}>
       <div className='notebook-header'>
         <h2>{name}</h2>
         <div className='notebook-actions'>
-          <button className='action-btn' onClick={handleEdit} title="Edit">
-            <span className='material-icons'>edit</span>
-          </button>
-          <button className='action-btn' onClick={handleDelete} title="Delete">
+
+          <EditNotebook 
+          originalName = {name}
+          originalDescription={description}
+          originalColor = {color}
+          onEdit = {handleEdit}
+          id ={id}
+          />
+
+          <button className='action-btn'  onClick={handleDelete} type='button' title="Delete">
             <span className='material-icons'>delete</span>
           </button>
-          <button className='action-btn' onClick={handleShare} title="Share">
+          <button className='action-btn' onClick={handleShare} type='button' title="Share">
             <span className={`material-icons ${isShared ? 'shared-icon' : ''}`}> share</span>
           </button>
         </div>
       </div>
-      
       <p>{description}</p>
     </button>
   );

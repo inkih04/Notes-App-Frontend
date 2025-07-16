@@ -17,17 +17,26 @@ export default function NotebooksPage() {
             catch(error) {
                 console.error("Error fetching the notebooks");
             }
-            
         }
-
         fetchNotebooks();
-
     }, []);
 
     const handleNotebookCreated = (newNotebook) => {
         setNotebooks(
             (prev) => [...prev, newNotebook]
         );
+    };
+
+    const handleNotebookDelete = (id) => {
+        setNotebooks( (notebooks) => notebooks.filter((notebook) => notebook.id != id));
+
+    };
+
+    const handleNotebookEdit = (editedNotebook) => {
+        setNotebooks(notebooks => notebooks.map(
+            notebook => notebook.id === editedNotebook.id ? editedNotebook:notebook
+        ));
+
     };
 
     
@@ -44,11 +53,14 @@ export default function NotebooksPage() {
                 <div className="notebooks-list">
                     {notebooks.map((notebook) => (
                         <Notebook
+                            key={notebook.id}
                             name = {notebook.name}
                             description={notebook.description}
                             color={notebook.color}
                             id = {notebook.id}
-                            isShared = {notebook.is_shared}                        
+                            isShared = {notebook.is_shared}
+                            onDelete={handleNotebookDelete}
+                            onEdit={handleNotebookEdit}                        
                         />
                     ))}
                 </div>

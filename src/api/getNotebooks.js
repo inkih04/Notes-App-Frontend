@@ -18,18 +18,18 @@ export async function getNotebooks() {
     }
     catch(error) {
         refreshToken();
-        const token = sessionStorage.getItem("tokenAccess");
+        const retryToken = sessionStorage.getItem("tokenAccess");
         try {
             const retryResponse = await fetch("http://127.0.0.1:8000/api/notebooks/", {
                 method: "GET",
                 headers: {
-                    'Authorization': `Bearer ${token}`,
+                    'Authorization': `Bearer ${retryToken}`,
                 },
             });
             return await retryResponse.json();
         }
         catch (refreshError) {
-            throw refreshError;
+            throw new Error("Token Not Valid");
         }
     }
 

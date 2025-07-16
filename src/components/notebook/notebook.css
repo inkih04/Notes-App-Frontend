@@ -13,6 +13,7 @@
     cursor: pointer;
     transition: all 0.2s ease;
     max-width: 30rem;
+    min-height: 7rem;
 }
 
 .notebook:hover {
@@ -82,6 +83,7 @@
 .shared-icon {
   color: #2A2 !important;
 }
+
 
 
 

@@ -1,21 +1,32 @@
 import { useModal } from '../../hooks/useModal';
 import { Modal } from '@mui/material';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { createNotebook } from '../../api/createNotebook';
-import './AddNotebooks.css';
+import { editNotebook } from '../../api/editNotebook';
+import './EditNotebook.css';
 
-function AddNotebooks({onNotebookCreated}) {
+function EditNotebook({onNotebookCreated, originalName, originalDescription, originalColor, onEdit, id}) {
     const { isOpen, open, close } = useModal();
     const [formData, setFormData] = useState({
         name: '',
         description: '',
         color: '#FAF15B'
     });
-
+    
+    
     const colorOptions = [
         '#FAF15B', '#FFB3BA', '#BAFFC9', '#BAE1FF', 
         '#BAFFFF', '#FFDFBA', '#E0BBE4', '#C7CEEA'
     ];
+
+    const handleOpen = () => {
+        setFormData({
+            name: originalName || '',
+            description: originalDescription || '',
+            color: originalColor || '#FAF15B'
+        });
+        open();
+    };
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -27,13 +38,10 @@ function AddNotebooks({onNotebookCreated}) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
         try {
-            const newNotebook = await createNotebook(formData.name, formData.description, formData.color);
-            console.log('Notebook data:', formData);
-
-            onNotebookCreated(newNotebook);
-
-            setFormData({ name: '', description: '', color: '#FAF15B' });
+            const editedNotebook = await editNotebook(formData.name, formData.description, formData.color, id);
+            onEdit(editedNotebook);
             close();
         }
         catch(error) {
@@ -42,23 +50,21 @@ function AddNotebooks({onNotebookCreated}) {
     };
 
     const handleClose = () => {
-        setFormData({ name: '', description: '', color: '#FAF15B' });
+        setFormData({ name: '', description: '', color: '#FAF15B'});
         close();
     };
 
     return (
         <>
-            <button className="add-notebooks" onClick={open}>
-                <span className='material-icons'> add </span>
-                <p>Add</p>
-                <p className='p-hidden'>Notebook</p>
+            <button type="button" className='action-btn' onClick={(e) => {e.stopPropagation(); handleOpen();}} title="Edit">
+                <span className='material-icons'>edit</span>
             </button>
 
             <Modal open={isOpen} onClose={handleClose} aria-labelledby="modal-title" aria-describedby="modal-description">
-                <div className="add-notebooks-modal">
+                <div className="add-notebooks-modal" onClick={(e => e.stopPropagation())}>
                     <div className='add-notebook-modal-title'> 
-                        <h1>New Notebook</h1>
-                        <button className='material-icons simple-button' onClick={handleClose}>close</button>
+                        <h1>Edit Notebook</h1>
+                        <button className='material-icons simple-button' onClick={ (e) => {e.stopPropagation();  handleClose();}}>close</button>
                     </div>
                     
                     <form onSubmit={handleSubmit} className='add-notebooks-modal-form'>
@@ -109,8 +115,8 @@ function AddNotebooks({onNotebookCreated}) {
                         </div>
                         
                         <div className='form-actions'>
-                            <button type="submit" className='submit-btn'>
-                                Create Notebook
+                            <button  type="submit" className='submit-btn'>
+                                Edit Notebook
                             </button>
                         </div>
                     </form>
@@ -120,4 +126,4 @@ function AddNotebooks({onNotebookCreated}) {
     );
 }
 
-export default AddNotebooks;
+export default EditNotebook;

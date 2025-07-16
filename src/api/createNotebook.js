@@ -21,14 +21,14 @@ export async function createNotebook(name, description, color) {
     }
     catch(error) {
         await refreshToken();
-        const token = sessionStorage.getItem("tokenAccess");
+        const retryToken = sessionStorage.getItem("tokenAccess");
 
         try {
             const retryResponse = await fetch('http://127.0.0.1:8000/api/notebooks/create/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    "Authorization": `Bearer ${token}`,
+                    "Authorization": `Bearer ${retryToken}`,
 
                 },
                 body: JSON.stringify({name, description, color})
@@ -37,7 +37,7 @@ export async function createNotebook(name, description, color) {
             return await retryResponse.json();
         }
         catch (refreshError) {
-            throw refreshError
+            throw new Error("Token Not Valid");
         }
     }
 

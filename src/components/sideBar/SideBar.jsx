@@ -1,8 +1,8 @@
 import "./SideBar.css";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-function SideBar() {
+function SideBar({ onToggle }) { 
     const username = sessionStorage.getItem("userUsername");
     const email = sessionStorage.getItem("userEmail");
     const profilePicture = sessionStorage.getItem("userProfilePicture");
@@ -16,6 +16,9 @@ function SideBar() {
 
     const toggleSidebar = () => {
         setIsCollapsed(!isCollapsed);
+        if (onToggle) {
+            onToggle(!isCollapsed);
+        }
     }
 
     return (

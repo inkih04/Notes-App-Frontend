@@ -1,10 +1,9 @@
 import { useModal } from '../../hooks/useModal';
 import { Modal } from '@mui/material';
 import { useState } from 'react';
-import { createNotebook } from '../../api/createNotebook';
-import './AddNotebooks.css';
+import './AddButton.css';
 
-function AddNotebooks({onNotebookCreated}) {
+function AddButton({onNotebookCreated, action}) {
     const { isOpen, open, close } = useModal();
     const [formData, setFormData] = useState({
         name: '',
@@ -27,18 +26,8 @@ function AddNotebooks({onNotebookCreated}) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try {
-            const newNotebook = await createNotebook(formData.name, formData.description, formData.color);
-            console.log('Notebook data:', formData);
-
-            onNotebookCreated(newNotebook);
-
-            setFormData({ name: '', description: '', color: '#FAF15B' });
-            close();
-        }
-        catch(error) {
-            close()
-        }
+        console.log("Submit triggered:", formData);
+        onNotebookCreated(formData, close, setFormData);
     };
 
     const handleClose = () => {
@@ -51,13 +40,13 @@ function AddNotebooks({onNotebookCreated}) {
             <button className="add-notebooks" onClick={open}>
                 <span className='material-icons'> add </span>
                 <p>Add</p>
-                <p className='p-hidden'>Notebook</p>
+                <p className='p-hidden'>{action}</p>
             </button>
 
             <Modal open={isOpen} onClose={handleClose} aria-labelledby="modal-title" aria-describedby="modal-description">
                 <div className="add-notebooks-modal">
                     <div className='add-notebook-modal-title'> 
-                        <h1>New Notebook</h1>
+                        <h1>New {action}</h1>
                         <button className='material-icons simple-button' onClick={handleClose}>close</button>
                     </div>
                     
@@ -70,7 +59,7 @@ function AddNotebooks({onNotebookCreated}) {
                                 name="name"
                                 value={formData.name}
                                 onChange={handleInputChange}
-                                placeholder="Enter notebook name"
+                                placeholder="Enter a name"
                                 required
                             />
                         </div>
@@ -82,7 +71,7 @@ function AddNotebooks({onNotebookCreated}) {
                                 name="description"
                                 value={formData.description}
                                 onChange={handleInputChange}
-                                placeholder="Enter notebook description (optional)"
+                                placeholder="Enter a description (optional)"
                                 rows="3"
                             />
                         </div>
@@ -110,7 +99,7 @@ function AddNotebooks({onNotebookCreated}) {
                         
                         <div className='form-actions'>
                             <button type="submit" className='submit-btn'>
-                                Create Notebook
+                                Create {action}
                             </button>
                         </div>
                     </form>
@@ -120,4 +109,4 @@ function AddNotebooks({onNotebookCreated}) {
     );
 }
 
-export default AddNotebooks;
+export default AddButton;

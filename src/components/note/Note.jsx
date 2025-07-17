@@ -2,7 +2,7 @@ import { use } from 'react';
 import './Note.css';
 import { useState } from 'react';
 
-function Note ( {} ) {
+function Note ( {author, title, content, created_at, checked, color, id} ) {
     const [check, setCheck] = useState(false);
 
     const toggleCheck = () => {
@@ -17,19 +17,19 @@ function Note ( {} ) {
 
     return (
 
-        <button className='note-container'>
+        <button className='note-container' style={{backgroundColor:color}}>
             <div className='note-header'>
-                <h2>Hacer la compra</h2>
+                <h2>{title}</h2>
                 <button onClick={handleCheckButton}>
                     <span className='material-icons'>check</span>
                 </button>
             </div>
             <div className='note-content'>
-                <p>Comprar leche, pan, huevos, verduras y detergente antes de las 6 PM.</p>
+                <p>{content}</p>
                 
             </div>
             <div className='note-footer'>
-                <p>victor</p>
+                <p>{author}</p>
             </div>
 
         </button>

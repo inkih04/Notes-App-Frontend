@@ -1,14 +1,14 @@
 .sidebar {
     background-color: #FAF15B;
-    border-top-right-radius: 27px;
-    border-bottom-right-radius: 27px;
-    padding: 0.9rem;
+    border-top-right-radius: 24.3px;
+    border-bottom-right-radius: 24.3px;
+    padding: 0.81rem;
     margin: 0;
-    margin-right: 6.3rem;
+    margin-right: 5.67rem;
     height: 100vh;
     overflow: hidden;
     box-sizing: border-box;
-    width: 252px;
+    width: 226.8px;
     transition: width 0.8s cubic-bezier(0.23, 1, 0.32, 1),
                 padding 0.8s cubic-bezier(0.23, 1, 0.32, 1);
     min-width: min-content;
@@ -16,8 +16,8 @@
 }
 
 .sidebar.collapsed {
-    width: 54px;
-    padding: 0.9rem 0.18rem;
+    width: 48.6px;
+    padding: 0.81rem 0.162rem;
     min-width: auto;
 }
 
@@ -45,7 +45,7 @@
     align-items: center;
     justify-content: right;
     margin: 0;
-    margin-bottom: 0.9rem;
+    margin-bottom: 0.81rem;
     transition: justify-content 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -57,10 +57,10 @@
     text-decoration: none;
     color: inherit;
     background-color: transparent;
-    padding: 0.45rem;
+    padding: 0.405rem;
     border: none;
     cursor: pointer;
-    border-radius: 50%;
+    border-radius: 45%;
     transition: background-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
                 transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -81,16 +81,15 @@
 }
 
 .sidebar-profile-image {
-    width: 27vw;                 
-    max-width: 8.1rem;            
-    min-width: 3.6rem;             
-    aspect-ratio: 1 / 1;         
-    border-radius: 50%;          
+    width: 24.3vw;
+    max-width: 7.29rem;
+    min-width: 3.24rem;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
     overflow: hidden;
-    margin-bottom: 0.45rem;
+    margin-bottom: 0.405rem;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 
 .sidebar-profile-image img {
     width: 100%;
@@ -101,17 +100,17 @@
 }
 
 .sidebar-profile-username {
-    font-size: 1.08rem;
+    font-size: 0.972rem;
     font-weight: semibold;
     color: #333;
-    margin-bottom: 0.18rem;
+    margin-bottom: 0.162rem;
     transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .sidebar-profile-email {
-    font-size: 0.9rem;
+    font-size: 0.81rem;
     color: #666;
-    margin-bottom: 0.9rem;
+    margin-bottom: 0.81rem;
     transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -123,18 +122,17 @@
 }
 
 .sidebar-stats-separator {
-    height: 5.4px;
-    width: 85%;
+    height: 4.86px;
+    width: 76.5%;
     background-color: white;
-    border-radius: 999px; 
-    margin: 14.4px 0; 
+    border-radius: 999px;
+    margin: 12.96px 0;
     transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1),
                 background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-
-
 /* ------------------------------------------------------------------------------*/
+
 .sidebar-links {
     display: flex;
     flex-direction: column;
@@ -149,10 +147,10 @@
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-    gap: 0.45rem;
-    margin-top: 0.9rem;
+    gap: 0.405rem;
+    margin-top: 0.81rem;
     margin-left: 0;
-    margin-right: 2.7rem;
+    margin-right: 2.43rem;
 }
 
 .sidebar-links-logout {
@@ -161,20 +159,20 @@
     align-items: flex-start;
     justify-content: center;
     width: 100%;
-    margin-bottom: 3.6rem;
+    margin-bottom: 3.24rem;
 }
 
 .links-button {
     display: flex;
     align-items: center;
-    padding: 0.45rem 0.9rem;
+    padding: 0.405rem 0.81rem;
     background-color: transparent;
     color: #333;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 0.81rem;
     border: none;
     cursor: pointer;
-    border-radius: 7.2px;
+    border-radius: 6.48px;
     transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
                 transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
                 color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -183,12 +181,12 @@
 
 .links-button:hover {
     background-color: rgba(255, 255, 255, 0.3);
-    transform: translateX(4.5px);
+    transform: translateX(4.05px);
 }
 
 .links-button p {
-    margin-left: 0.45rem;
-    font-size: 1.08rem;
+    margin-left: 0.405rem;
+    font-size: 0.972rem;
     font-weight: normal;
     font-style: normal;
     overflow: hidden;
@@ -197,11 +195,11 @@
 }
 
 .links-button:hover p {
-    transform: translateX(2.7px);
+    transform: translateX(2.43px);
 }
 
 .links-button span {
-    font-size: 1.44rem;
+    font-size: 1.296rem;
     color: #222;
     transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
                 transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -211,9 +209,8 @@
     transform: scale(1.1);
 }
 
-@media (max-width: 950px) {
+@media (max-width: 855px) {
     .sidebar {
         display: none;
     }
-
 }

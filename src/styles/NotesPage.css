@@ -4,6 +4,11 @@
     display: flex;
     flex-direction: column;
 }
+.notebook-description {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+
+}
 
 .notes-header-container {
     display: flex;
@@ -18,8 +23,8 @@
 .notes-list {
   margin-top: 3rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-  gap: 4rem;
+  grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
+  gap: 2rem;
   width: 100%;
   padding: 20px;
 }

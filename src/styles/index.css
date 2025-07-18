@@ -13,6 +13,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+   font-size: 90%; /* Esto reduce el rem de 16px a 14.4px */
+
+}
+
 div, span, p, a, button, body, h1 {
   box-sizing: border-box;
   margin: 0;

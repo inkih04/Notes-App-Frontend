@@ -2,11 +2,13 @@ import { deleteNotebook } from '../../api/deleteNotebook';
 import './Notebook.css';
 import EditNotebook from '../editNotebook/EditNotebook';
 import { useNavigate } from 'react-router-dom';
+import { refreshToken } from '../../api/refereshToken';
 
 function Notebook({name, description, color, id, isShared, onDelete, onEdit}) {
   const navigate = useNavigate();
   
   const handleNotebookClick = () => {
+    refreshToken();
     navigate(`/notebooks/${id}`)
   };
 

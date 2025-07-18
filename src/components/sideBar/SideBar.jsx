@@ -1,11 +1,13 @@
 import "./SideBar.css";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useMemo } from "react";
+import { refreshToken } from "../../api/refereshToken";
 
 function SideBar({ onToggle }) { 
     const username = sessionStorage.getItem("userUsername");
     const email = sessionStorage.getItem("userEmail");
     const profilePicture = sessionStorage.getItem("userProfilePicture");
+    const memoizedProfilePicture = useMemo(() => profilePicture, [profilePicture]);
     const navigate = useNavigate();
     const [isCollapsed, setIsCollapsed] = useState(false);
 
@@ -32,7 +34,7 @@ function SideBar({ onToggle }) {
             <div className="sidebar-content">
                 <div className="sidebar-profile">
                     <div className="sidebar-profile-image">
-                        <img className="profile-image" src={profilePicture} alt="Profile Picture" />
+                        <img className="profile-image" src={memoizedProfilePicture} alt="Profile Picture" />
                     </div>
                     <span className="sidebar-profile-username">{username}</span>
                     <span className="sidebar-profile-email">{email}</span>
@@ -44,15 +46,15 @@ function SideBar({ onToggle }) {
 
                 <div className="sidebar-links">
                     <div className="links">
-                        <button className="links-button" onClick={() => navigate("/Notebooks")}>
+                        <button className="links-button" onClick={() => {refreshToken();  navigate("/Notebooks");}}>
                             <span className="material-icons">menu_book</span>
                             <p> Notebooks</p>
                         </button>
-                        <button className="links-button" onClick={() => navigate("/Notebooks")}>
+                        <button className="links-button" onClick={() => {refreshToken();  navigate("/Notebooks");}}>
                             <span className="material-icons">star</span>
                             <p> Important Notes</p>
                         </button>                    
-                        <button className="links-button" onClick={() => navigate("/Notebooks")}>
+                        <button className="links-button" onClick={() => {refreshToken();  navigate("/Notebooks");}}>
                             <span className="material-icons">lock</span>
                             <p> Clossed Notes </p>
                         </button>

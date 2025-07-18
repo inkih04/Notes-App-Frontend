@@ -14,12 +14,16 @@ import { getNotes } from "../api/getNotes";
 export default function NotesPage() {
     const {id} = useParams();
     const [notes, setNotes] = useState([]);
+    const [notebookName, setNotebookName] = useState("");
+    const [notebookDescription, setNotebooDescription] = useState("");
 
     useEffect(() => {
         async function fetchNotes() {
             try {
                 const data = await getNotes(id);
-                setNotes(data);
+                setNotes(data.notes);
+                setNotebookName(data.name);
+                setNotebooDescription(data.description);
             }
             catch(error) {
                 console.error("Error fetching the notes");
@@ -33,13 +37,15 @@ export default function NotesPage() {
             const newNote = await createNote(formData.name, formData.description, formData.color, id);
             resetForm({ name: '', description: '', color: '#FAF15B' });
             close();
-            setNotes((prev) => [...prev, newNote]);
+            setNotes((prev) => [{ ...newNote, isNew: true }, ...prev]);
 
         } catch(error) {
             close();
         }
+    };
 
-
+    const handleNoteDelete = (identificator) => {
+        setNotes( (notes) => notes.filter((note) => note.id != identificator));
     };
 
     return (
@@ -47,8 +53,8 @@ export default function NotesPage() {
             <div className="notes-container">
                 <div className="notes-header-container">
                     <div>
-                        <h1>Notes</h1>
-                        <p>desc</p>
+                        <h1>{notebookName}</h1>
+                        <p className="notebook-description">{notebookDescription}</p>
                     </div>
                     <AddButton
                         onNotebookCreated={handleCreateNote}
@@ -66,6 +72,9 @@ export default function NotesPage() {
                             author = {note.author}
                             created_at={note.created_at}
                             checked={note.checked}
+                            notebookId = {id}
+                            isNew = {note.isNew}
+                            onDelete={handleNoteDelete}
                     
                         />
                     ))}

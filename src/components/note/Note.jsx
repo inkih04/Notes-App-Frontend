@@ -2,17 +2,19 @@ import './Note.css';
 import { useState } from 'react';
 import { editNote } from '../../api/editNote';
 import {deleteNote} from '../../api/deleteNote';
+import {createFavourite} from '../../api/createFavourite';
+import { deleteFavourite } from '../../api/deleteFavourite';
 
-function Note ( {author, title, content, created_at, checked, color, id, favorite, notebookId, onDelete, isNew} ) {
+function Note ( {author, title, content, created_at, checked, color, id, notebookId, onDelete, isNew, isFavourite, hideDelete, hideCheck} ) {
 
     const [check, setCheck] = useState(checked ?? false);
-    const [fav, setFav] = useState(favorite ?? false);
+    const [fav, setFav] = useState(isFavourite ?? false);
 
     const toggleCheck = () => {
         setCheck(!check);
     };
 
-    const toggleFav = ( ) => {
+    const toggleFav = async (e) => {
         setFav(!fav);
     }
 
@@ -27,9 +29,13 @@ function Note ( {author, title, content, created_at, checked, color, id, favorit
 
     const handleFavouriteButton = async (e) => {
         e.stopPropagation();
+        if (!fav) {
+            await createFavourite(id);
+        }
+        else {
+            await deleteFavourite(id);
+        }
         toggleFav();
-
-
     };
 
     const handleDeleteButton = async (e) => {
@@ -46,15 +52,19 @@ function Note ( {author, title, content, created_at, checked, color, id, favorit
             <div className='note-header'>
                 <h2>{title}</h2>
                 <div className='note-buttons'>
-                    <button className={`delete-note-button`} onClick={handleDeleteButton}>
-                        <span className='material-icons'>delete</span>
-                    </button>
+                    {!hideDelete && (
+                        <button className={`delete-note-button`} onClick={handleDeleteButton}>
+                            <span className='material-icons'>delete</span>
+                        </button>
+                    )}
                     <button className={`fav-note-button ${fav ? 'faved-note-button' : ''}`} onClick={handleFavouriteButton}>
                         <span className='material-icons'>favorite</span>
                     </button>
-                    <button className={`check-button ${check ? 'checked-button' : ''}`} onClick={handleCheckButton}>
-                        <span className='material-icons'>check</span>
-                    </button>
+                    {!hideCheck && (
+                        <button className={`check-button ${check ? 'checked-button' : ''}`} onClick={handleCheckButton}>
+                            <span className='material-icons'>check</span>
+                        </button>
+                    )}
                 </div>
             </div>
             <div className='note-content'>

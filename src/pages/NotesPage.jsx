@@ -75,6 +75,7 @@ export default function NotesPage() {
                             notebookId = {id}
                             isNew = {note.isNew}
                             onDelete={handleNoteDelete}
+                            isFavourite={note.is_favourite}
                     
                         />
                     ))}

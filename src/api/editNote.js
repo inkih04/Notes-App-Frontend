@@ -23,7 +23,7 @@ export async function editNote(notebookId, noteId, title, content,  checked, col
         const retryToken = sessionStorage.getItem("tokenAccess");
 
         try {
-            const retryResponse  =  await fetch(`http://127.0.0.1:8000/api/notebooks/${notebookId}/notes/${noteId}`, {
+            const retryResponse  =  await fetch(`http://127.0.0.1:8000/api/notebooks/${notebookId}/notes/${noteId}/`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": 'application/json',

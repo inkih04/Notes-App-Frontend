@@ -34,7 +34,7 @@ function SideBar({ onToggle }) {
             <div className="sidebar-content">
                 <div className="sidebar-profile">
                     <div className="sidebar-profile-image">
-                        <img className="profile-image" src={memoizedProfilePicture} alt="Profile Picture" />
+                        <img onError={(e) => e.target.src = 'https://www.w3schools.com/howto/img_avatar.png'} className="profile-image" src={memoizedProfilePicture} alt="Profile Picture" />
                     </div>
                     <span className="sidebar-profile-username">{username}</span>
                     <span className="sidebar-profile-email">{email}</span>
@@ -50,7 +50,7 @@ function SideBar({ onToggle }) {
                             <span className="material-icons">menu_book</span>
                             <p> Notebooks</p>
                         </button>
-                        <button className="links-button" onClick={() => {refreshToken();  navigate("/Notebooks");}}>
+                        <button className="links-button" onClick={() => {refreshToken();  navigate("/Note/Favourite");}}>
                             <span className="material-icons">star</span>
                             <p> Important Notes</p>
                         </button>                    

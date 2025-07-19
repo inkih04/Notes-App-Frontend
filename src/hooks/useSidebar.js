@@ -9,9 +9,9 @@ export const useSidebar = () => {
     useEffect(() => { 
         const root = document.documentElement;
         if (isCollapsed) {
-            root.style.setProperty('--sidebar-margin', 'calc(54px + 6.3rem)');
+            root.style.setProperty('--sidebar-margin', 'calc(54px + 4.3rem)');
         } else {
-            root.style.setProperty('--sidebar-margin', 'calc(252px + 6.3rem)');
+            root.style.setProperty('--sidebar-margin', 'calc(252px + 4.3rem)');
         }
     }, [isCollapsed]);
 

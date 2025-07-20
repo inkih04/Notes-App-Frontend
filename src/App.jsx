@@ -4,6 +4,7 @@ import NotebooksPage from "./pages/NotebooksPage.jsx";
 import NotesPage from "./pages/NotesPage.jsx";
 import ProtectedRoute from "./components/protectedRoute/ProtectedRoute.jsx";
 import FavNotesPage from "./pages/FavNotePage.jsx";
+import ClosedNotesPage from "./pages/ClosedNotePage.jsx";
 
 
 
@@ -15,6 +16,7 @@ export default function App() {
                     <Route path="/Notebooks" element={<ProtectedRoute> <NotebooksPage /> </ProtectedRoute> } />
                     <Route path="/Notebooks/:id" element= {<ProtectedRoute><NotesPage/></ProtectedRoute>}/>
                     <Route path="/Note/Favourite" element= {<ProtectedRoute><FavNotesPage/></ProtectedRoute>}/>
+                    <Route path="/Note/Closed" element= {<ProtectedRoute><ClosedNotesPage/></ProtectedRoute>}/>
                 </Routes>
             </BrowserRouter>
 

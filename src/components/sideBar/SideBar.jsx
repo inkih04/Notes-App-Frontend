@@ -54,9 +54,9 @@ function SideBar({ onToggle }) {
                             <span className="material-icons">star</span>
                             <p> Important Notes</p>
                         </button>                    
-                        <button className="links-button" onClick={() => {refreshToken();  navigate("/Notebooks");}}>
+                        <button className="links-button" onClick={() => {refreshToken();  navigate("/Note/Closed");}}>
                             <span className="material-icons">lock</span>
-                            <p> Clossed Notes </p>
+                            <p> Closed Notes </p>
                         </button>
                     </div>
                     <div className="sidebar-links-logout">

@@ -19,7 +19,7 @@ function ProtectedRoute({children}) {
             if (!token) {
                 setLoading(false);
                 setValid(false);
-                return; 
+                return;
             }
 
             const isValid = await isTokenValid();

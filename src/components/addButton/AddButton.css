@@ -50,7 +50,19 @@
     .p-hidden {
         display: none;
     }
+    .add-notebooks p {
+        margin-right: 0.5rem;
+    }
 }
+
+@media (max-width: 480px) { 
+    
+    .add-notebooks p {
+        display: none;
+    }
+
+}
+
 
 /* Modal Styles */
 .add-notebooks-modal {

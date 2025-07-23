@@ -5,7 +5,7 @@ export async function acceptInvitation(token) {
     const accessToken = sessionStorage.getItem("tokenAccess");
 
     try {
-        const response = await fetch(`${API_BASE_URL}/notebooks/accept-invitation/${token}/`, {
+        const response = await fetch(`${API_BASE_URL}/api/notebooks/accept-invitation/${token}/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -24,7 +24,7 @@ export async function acceptInvitation(token) {
         const retryToken = sessionStorage.getItem("tokenAccess");
 
         try {
-            const retryResponse = await fetch(`${API_BASE_URL}/notebooks/accept-invitation/${token}/`, {
+            const retryResponse = await fetch(`${API_BASE_URL}/api/notebooks/accept-invitation/${token}/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

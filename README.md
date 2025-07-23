@@ -1,134 +1,134 @@
 # 📝 Notes App Frontend
 
-Una aplicación web moderna y colaborativa para la gestión de notas y notebooks, construida con React y Vite. Permite crear, editar y compartir notebooks de forma colaborativa en tiempo real.
+A modern and collaborative web application for notes and notebooks management, built with React and Vite. Allows creating, editing, and sharing notebooks collaboratively in real-time.
 
-## ✨ Características
+## ✨ Features
 
-- 📚 **Gestión de Notebooks**: Crea y organiza tus notebooks de forma intuitiva
-- 📝 **Editor de Notas**: Edita tus notas con una interfaz limpia y moderna
-- 👥 **Colaboración en Tiempo Real**: Comparte notebooks y trabaja simultáneamente con otros usuarios
-- 📱 **Diseño Responsive**: Optimizado tanto para escritorio como para dispositivos móviles
-- 🔐 **Autenticación con Google**: Inicio de sesión seguro y sencillo
-- 🎨 **Interfaz Moderna**: Diseño atractivo y funcional
+- 📚 **Notebook Management**: Create and organize your notebooks intuitively
+- 📝 **Notes Editor**: Edit your notes with a clean and modern interface
+- 👥 **Real-Time Collaboration**: Share notebooks and work simultaneously with other users
+- 📱 **Responsive Design**: Optimized for both desktop and mobile devices
+- 🔐 **Google Authentication**: Secure and simple login
+- 🎨 **Modern Interface**: Attractive and functional design
 
-## 🛠️ Tecnologías
+## 🛠️ Technologies
 
-- **React** - Biblioteca de JavaScript para construir interfaces de usuario
-- **Vite** - Herramienta de construcción rápida y moderna
-- **Google OAuth** - Autenticación segura
-- **CSS Responsive** - Diseño adaptable a todos los dispositivos
+- **React** - JavaScript library for building user interfaces
+- **Vite** - Fast and modern build tool
+- **Google OAuth** - Secure authentication
+- **Responsive CSS** - Adaptable design for all devices
 
-## 🚀 Instalación y Configuración
+## 🚀 Installation and Setup
 
-### Requisitos Previos
+### Prerequisites
 
-- Node.js (versión 14 o superior)
-- npm o yarn
+- Node.js (version 14 or higher)
+- npm or yarn
 
-### Instalación
+### Installation
 
-1. **Clona el repositorio**
+1. **Clone the repository**
    ```bash
    git clone https://github.com/inkih04/Notes-App-Frontend.git
    cd Notes-App-Frontend
    ```
 
-2. **Instala las dependencias**
+2. **Install dependencies**
    ```bash
    npm install
    ```
 
-3. **Configura las variables de entorno**
+3. **Configure environment variables**
    
-   Crea un archivo `.env.local` en la raíz del proyecto con las siguientes variables:
+   Create a `.env.local` file in the project root with the following variables:
    ```env
    VITE_GOOGLE_CLIENT_ID=
    VITE_API_URL=
    ```
 
-4. **Ejecuta la aplicación en modo desarrollo**
+4. **Run the application in development mode**
    ```bash
    ./run-dev.sh
    ```
    
-   O alternativamente:
+   Or alternatively:
    ```bash
    npm run dev
    ```
 
-La aplicación estará disponible en `http://localhost:5173`
+The application will be available at `http://localhost:5173`
 
-## 📱 Uso
+## 📱 Usage
 
-### Funcionalidades Principales
+### Main Features
 
-1. **Inicio de Sesión**
-   - Utiliza tu cuenta de Google para acceder a la aplicación
+1. **Login**
+   - Use your Google account to access the application
 
-2. **Gestión de Notebooks**
-   - Crea nuevos notebooks
-   - Visualiza todos tus notebooks existentes
-   - Organiza tus notas por categorías
+2. **Notebook Management**
+   - Create new notebooks
+   - View all your existing notebooks
+   - Organize your notes by categories
 
-3. **Editor de Notas**
-   - Crea y edita notas dentro de tus notebooks
-   - Guarda automáticamente tus cambios
-   - Interfaz intuitiva y responsive
+3. **Notes Editor**
+   - Create and edit notes within your notebooks
+   - Automatically save your changes
+   - Intuitive and responsive interface
 
-4. **Colaboración**
-   - Comparte notebooks con otros usuarios
-   - Trabaja de forma simultánea en el mismo notebook
-   - Sincronización en tiempo real
+4. **Collaboration**
+   - Share notebooks with other users
+   - Work simultaneously on the same notebook
+   - Real-time synchronization
 
-## 🏗️ Estructura del Proyecto
+## 🏗️ Project Structure
 
 ```
 src/
-├── components/     # Componentes reutilizables
-├── pages/         # Páginas principales de la aplicación
-├── hooks/         # Hooks personalizados
-├── services/      # Servicios para comunicación con la API
-├── styles/        # Archivos de estilos
-└── utils/         # Utilidades y helpers
+├── components/     # Reusable components
+├── pages/         # Main application pages
+├── hooks/         # Custom hooks
+├── services/      # Services for API communication
+├── styles/        # Style files
+└── utils/         # Utilities and helpers
 ```
 
-## 🤝 Colaboración
+## 🤝 Collaboration
 
 
 ## 📱 Responsive Design
 
-La aplicación está completamente optimizada para:
-- 💻 **Escritorio**: Experiencia completa con todas las funcionalidades
-- 📱 **Móvil**: Interfaz adaptada para pantallas táctiles
-- 📊 **Tablet**: Diseño híbrido que aprovecha el espacio disponible
+The application is fully optimized for:
+- 💻 **Desktop**: Complete experience with all functionalities
+- 📱 **Mobile**: Interface adapted for touch screens
+- 📊 **Tablet**: Hybrid design that takes advantage of available space
 
-## 🌐 Demo y Enlaces
+## 🌐 Demo and Links
 
-### 🚀 Aplicación en Vivo
-- **Demo**: [Notes App en Vercel](https://notes-app-frontend-yv8o-git-feat-deploy-vics-projects-668ba45c.vercel.app/)
+### 🚀 Live Application
+- **Demo**: [Notes App on Vercel](https://notes-app-frontend-yv8o-git-feat-deploy-vics-projects-668ba45c.vercel.app/)
 
-### 🔗 Enlaces Adicionales
+### 🔗 Additional Links
 - **Frontend**: [GitHub Repository](https://github.com/inkih04/Notes-App-Frontend)
-- **Backend**: [API en Render](https://notes-app-backend-37a9.onrender.com)
+- **Backend**: [API on Render](https://notes-app-backend-37a9.onrender.com)
 
-### ⚠️ Nota sobre Rendimiento
+### ⚠️ Performance Note
 
-La aplicación está desplegada utilizando las **tier gratuitas** de Vercel (frontend) y Render (backend), por lo que:
+The application is deployed using **free tiers** of Vercel (frontend) and Render (backend), so:
 
-- 🐌 **Primer acceso**: Puede tardar hasta **1 minuto** en cargar cuando no ha habido actividad reciente
-- ⏱️ **Rendimiento**: La velocidad puede ser menor a la óptima debido a las limitaciones de los planes gratuitos
-- 😴 **Hibernación**: El backend en Render entra en modo de hibernación después de períodos de inactividad
+- 🐌 **First access**: May take up to **1 minute** to load when there hasn't been recent activity
+- ⏱️ **Performance**: Speed may be lower than optimal due to free plan limitations
+- 😴 **Hibernation**: The backend on Render goes into hibernation mode after periods of inactivity
 
-Para una experiencia óptima, recomendamos ejecutar la aplicación localmente siguiendo las instrucciones de instalación.
+For an optimal experience, we recommend running the application locally following the installation instructions.
 
-## 📄 Licencia
+## 📄 License
 
-Este proyecto está bajo la licencia MIT. Consulta el archivo `LICENSE` para más detalles.
+This project is under the MIT license. Check the `LICENSE` file for more details.
 
-## 🙋‍♂️ Soporte
+## 🙋‍♂️ Support
 
-Si tienes alguna pregunta o encuentras algún problema, no dudes en abrir un issue en el repositorio de GitHub.
+If you have any questions or encounter any issues, feel free to open an issue on the GitHub repository.
 
 ---
 
-**Desarrollado con ❤️ usando React y Vite**
+**Developed with ❤️ using React and Vite**

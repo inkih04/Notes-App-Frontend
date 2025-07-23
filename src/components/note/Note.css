@@ -86,7 +86,6 @@
     font-weight: normal;
 }
 
-
 .note-footer {
     display: flex;
     flex-direction: row;
@@ -105,18 +104,9 @@
     filter: grayscale(0.4);
 }
 
-
-
-
-
 .fav-note-button.faved-note-button {
     color: #FFA552;
     border-radius: 50%;
-}
-
-
-.note-enter {
-  animation: fadeInSlide 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .note-enter {
@@ -134,9 +124,7 @@
   }
 }
 
-
-
-/* Modal Styles */
+/* Modal Delete Styles */
 .modal-delete-note {
     position: absolute;
     top: 40.5%;
@@ -211,4 +199,242 @@
     background-color: #D32F2F;
     transform: translateY(-1px);
     box-shadow: 0 2px 8px rgba(230, 57, 70, 0.3);
+}
+
+/* Modal Edit Styles */
+.modal-edit-note {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    border: none;
+    outline: none;
+    display: flex;
+    flex-direction: column;
+    width: 60vw;
+    max-width: 800px;
+    min-width: 500px;
+    height: 60vh;
+    min-height: 400px;
+    max-height: 80vh;
+    overflow: hidden;
+    animation: modalFadeIn 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.edit-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 2.5rem 1.5rem 2.5rem;
+    border-bottom: 4px solid rgba(255, 255, 255, 0.4);
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+}
+
+.edit-modal-title {
+    color: #333;
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-right: 1rem;
+}
+
+.edit-modal-close-button {
+    background: none;
+    border: none;
+    color: #555;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-modal-close-button:hover {
+    background-color: rgba(0,0,0,0.1);
+    color: #D32F2F;
+    transform: scale(1.1);
+}
+
+.edit-modal-close-button .material-icons {
+    font-size: 1.5rem;
+}
+
+.edit-modal-content {
+    flex: 1;
+    padding: 2rem 2.5rem;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.edit-content-display {
+    width: 100%;
+    min-height: 200px;
+    color: #333;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    cursor: text;
+    padding: 1rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    border: 2px solid transparent;
+}
+
+.edit-content-display:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.edit-content-display:empty::before {
+    content: "Click to add content...";
+    color: rgba(51, 51, 51, 0.5);
+    font-style: italic;
+}
+
+.edit-content-textarea {
+    width: 100%;
+    min-height: 90%;
+    color: #333;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    padding: 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    resize: vertical;
+    font-family: inherit;
+    transition: all 0.2s ease;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.edit-content-textarea:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1), 0 0 0 3px rgba(255,255,255,0.2);
+}
+
+.edit-modal-footer {
+    padding: 1.5rem 2.5rem 2rem 2.5rem;
+    border-top: 2px solid rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.edit-modal-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.edit-modal-author {
+    font-style: italic;
+    color: rgba(51, 51, 51, 0.8);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.edit-modal-date {
+    font-style: italic;
+    color: rgba(51, 51, 51, 0.6);
+    font-size: 0.85rem;
+}
+
+.edit-modal-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.edit-modal-buttons button {
+    padding: 0.8rem 1.8rem;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 100px;
+}
+
+.edit-modal-cancel-button {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: #555;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.edit-modal-cancel-button:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    color: #333;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.edit-modal-save-button {
+    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+    color: white;
+    border: 2px solid transparent;
+    box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+}
+
+.edit-modal-save-button:hover {
+    background: linear-gradient(135deg, #45a049 0%, #3d8b40 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(76, 175, 80, 0.4);
+}
+
+
+@media (max-width: 768px) {
+    .modal-edit-note {
+        width: 95vw;
+        height: 70vh;
+        min-width: 300px;
+    }
+    
+    .edit-modal-header,
+    .edit-modal-content,
+    .edit-modal-footer {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+    
+    .edit-modal-title {
+        font-size: 1.5rem;
+    }
+    
+    .edit-modal-footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .edit-modal-buttons {
+        justify-content: center;
+    }
 }

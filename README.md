@@ -105,7 +105,7 @@ The application is fully optimized for:
 ## 🌐 Demo and Links
 
 ### 🚀 Live Application
-- **Demo**: [Notes App on Vercel](https://notes-app-frontend-yv8o-git-feat-deploy-vics-projects-668ba45c.vercel.app/)
+- **Demo**: [Notes App on Vercel](https://notes-app-frontend-vics-projects-668ba45c.vercel.app/)
 
 ### 🔗 Additional Links
 - **Frontend**: [GitHub Repository](https://github.com/inkih04/Notes-App-Frontend)

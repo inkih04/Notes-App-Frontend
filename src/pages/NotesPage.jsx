@@ -44,6 +44,13 @@ export default function NotesPage() {
         }
     };
 
+    const handleNoteEdit = (editedNote) => {
+        setNotes(notes => notes.map(
+            note => note.id === editedNote.id ? editedNote:note
+        ));
+
+    };
+
     const handleNoteDelete = (identificator) => {
         setNotes( (notes) => notes.filter((note) => note.id != identificator));
     };
@@ -76,6 +83,7 @@ export default function NotesPage() {
                             isNew = {note.isNew}
                             onDelete={handleNoteDelete}
                             isFavourite={note.is_favourite}
+                            onEdit={handleNoteEdit}
                     
                         />
                     ))}

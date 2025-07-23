@@ -1,0 +1,106 @@
+:root {
+    --sidebar-margin: calc(252px + 6rem);
+}
+
+.sidebar-layout {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar-content-wrapper {
+    margin-left: var(--sidebar-margin);
+    transition: margin-left 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.bottom-layout {
+    display: none;
+}
+
+@media (max-width: 950px) {
+    :root {
+        --sidebar-margin: 1rem !important;
+    }
+    
+    .sidebar {
+        display: none;
+    }
+    .bottom-layout {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background: linear-gradient(155deg, #f8c065 20%, #19547b 99%) !important;
+        backdrop-filter: blur(20px);
+        box-shadow: 0 -8px 32px rgba(255, 193, 7, 0.15);
+        padding: 8px 0 12px 0 !important;
+        border-radius: 20px 20px 0 0;
+    }
+    
+    .bottom-layout .MuiBottomNavigationAction-root {
+        color: rgba(255, 255, 255, 0.8) !important;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        border-radius: 16px !important;
+        margin: 0 4px !important;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .bottom-layout .MuiBottomNavigationAction-root:hover {
+        background: rgba(255, 193, 7, 0.3) !important;
+        transform: translateY(-2px);
+    }
+    
+    .bottom-layout .MuiBottomNavigationAction-root.Mui-selected {
+        color: #ffffff !important;
+        background: rgba(255, 193, 7, 0.4) !important;
+        box-shadow: 0 4px 20px rgba(255, 193, 7, 0.4);
+        transform: translateY(-3px);
+    }
+    
+    
+    .bottom-layout .MuiBottomNavigationAction-icon {
+        transition: all 0.3s ease !important;
+    }
+    
+    .bottom-layout .MuiBottomNavigationAction-root:hover .MuiBottomNavigationAction-icon {
+        transform: scale(1.1);
+    }
+    
+    .bottom-layout .MuiBottomNavigationAction-root.Mui-selected .MuiBottomNavigationAction-icon {
+        transform: scale(1.15);
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    }
+    
+    .bottom-layout .MuiBottomNavigationAction-label {
+        font-weight: 500 !important;
+        font-size: 0.7rem !important;
+        margin-top: 4px !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    .bottom-layout .MuiBottomNavigationAction-root.Mui-selected .MuiBottomNavigationAction-label {
+        font-weight: 600 !important;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    }
+    
+    .bottom-layout .MuiBottomNavigationAction-root::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background: rgba(255, 193, 7, 0.4);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+    }
+    
+    .bottom-layout .MuiBottomNavigationAction-root:active::after {
+        width: 60px;
+        height: 60px;
+    }
+}

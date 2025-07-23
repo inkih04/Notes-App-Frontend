@@ -1,0 +1,297 @@
+.add-notebooks {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0.81rem 0.972rem;
+    margin-right: 4.05rem;
+    background-color: #FAF15B;
+    box-shadow: 0 3.6px 3.6px 0 rgba(4, 4, 4, 0.08);
+    border-radius: 4.05px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+                color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.add-notebooks:hover {
+    background-color: #FAF15B88;
+    transform: translateX(3.645px); 
+}
+
+.add-notebooks span {
+    font-size: 1.215rem; 
+    font-weight: 600;
+    color: #111;
+    margin: 0;
+    padding: 0;
+    transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.add-notebooks:hover span {
+    transform: scale(0.891); 
+}
+
+.add-notebooks p {
+    font-size: 1.215rem; 
+    color: #222;
+    margin-left: 0.243rem; 
+    font-weight: 400;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.add-notebooks:hover p {
+    transform: translateX(2.187px); 
+}
+
+@media (max-width: 855px) {
+    .p-hidden {
+        display: none;
+    }
+    .add-notebooks p {
+        margin-right: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) { 
+    
+    .add-notebooks p {
+        display: none;
+    }
+
+}
+
+
+/* Modal Styles */
+.add-notebooks-modal {
+    position: absolute;
+    top: 40.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 10.8px;
+    box-shadow: 0 9px 36px rgba(0,0,0,0.15);
+    padding: 1.8rem;
+    border: none;
+    outline: none;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    width: 81%;
+    max-width: 450px;
+    max-height: 81vh;
+    overflow-y: auto;
+}
+
+.add-notebook-modal-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.9rem;
+    padding-bottom: 0.63rem;
+    border-bottom: 0.9px solid #e0e0e0;
+}
+
+.add-notebook-modal-title h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.add-notebook-modal-title button:hover {
+    color: #d22;
+}
+
+/* Form Styles */
+.add-notebooks-modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.35rem;
+}
+
+.add-notebooks-modal-form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.add-notebooks-modal-form-field label {
+    font-weight: 600;
+    color: #333;
+    font-size: 0.81rem;
+    text-transform: uppercase;
+    letter-spacing: 0.45px;
+}
+
+.add-notebooks-modal-form-field input[type="text"],
+.add-notebooks-modal-form-field textarea {
+    padding: 0.675rem;
+    border: 1.8px solid #e0e0e0;
+    border-radius: 7.2px;
+    font-size: 0.9rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    font-family: inherit;
+    background-color: #f0e850;
+    color: #222;
+}
+
+.add-notebooks-modal-form-field input[type="text"]:focus,
+.add-notebooks-modal-form-field textarea:focus {
+    outline: none;
+    border-color: #FAF15B;
+    box-shadow: 0 0 0 2.7px rgba(250, 241, 91, 0.1);
+}
+
+.add-notebooks-modal-form-field textarea {
+    resize: vertical;
+    min-height: 72px;
+}
+
+/* Color Picker Styles */
+.color-picker-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.675rem;
+    margin-top: 0.45rem;
+}
+
+.color-option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.color-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.color-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2.7px solid transparent;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.color-option:hover .color-circle {
+    transform: scale(1.1);
+}
+
+.color-option input[type="radio"]:checked + .color-circle {
+    border-color: #333;
+    transform: scale(1.1);
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    gap: 0.9rem;
+    justify-content: flex-end;
+    margin-top: 0.9rem;
+    padding-top: 0.9rem;
+    border-top: 0.9px solid #e0e0e0;
+}
+
+.cancel-btn,
+.submit-btn {
+    padding: 0.675rem 1.35rem;
+    border: none;
+    border-radius: 7.2px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.cancel-btn {
+    background-color: #f5f5f5;
+    color: #666;
+}
+
+.cancel-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.submit-btn {
+    background-color: #FAF15B;
+    color: #333;
+}
+
+.submit-btn:hover {
+    background-color: #f0e850;
+}
+
+.submit-btn:disabled {
+    background-color: #e0e0e0;
+    color: #999;
+    cursor: not-allowed;
+}
+
+.cancel-btn:active,
+.submit-btn:active {
+    transform: translateY(0.9px);
+}
+
+/* Responsive Design */
+@media (max-width: 691px) {
+    .add-notebooks-modal {
+        width: 85.5%;
+        padding: 1.35rem;
+        margin: 0.9rem;
+    }
+
+    .add-notebook-modal-title h1 {
+        font-size: 1.35rem;
+    }
+
+    .color-picker-container {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.45rem;
+    }
+
+    .color-circle {
+        width: 31.5px;
+        height: 31.5px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        gap: 0.675rem;
+    }
+
+    .cancel-btn,
+    .submit-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 432px) {
+    .add-notebooks-modal {
+        padding: 0.9rem;
+    }
+
+    .add-notebook-modal-title h1 {
+        font-size: 1.125rem;
+    }
+
+    .color-picker-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .color-circle {
+        width: 27px;
+        height: 27px;
+    }
+}

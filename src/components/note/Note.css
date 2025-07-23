@@ -1,0 +1,214 @@
+.note-container {
+    background-color: #FAF15B;
+    color: #333;
+    border-radius: 17px;
+    padding: 1.6rem;
+    padding-bottom: 1rem;
+    max-width: 30rem;
+    min-width: 20rem;
+    min-height: 13rem;
+    max-height: 15rem;
+    box-shadow: 0 4px 4px 0 #0002;
+    transform: scale(0.9);
+    transform-origin: top left;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.note-container:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: scale(0.9) translateY(-2px);
+}
+
+.note-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0.4rem;
+    gap: 1rem;
+    border-bottom: 0.4rem solid #FAFAFA;
+}
+
+.note-buttons button {
+    padding: 0.2rem;
+    color: #999;
+    background-color: transparent;
+}
+
+.delete-note-button:hover {
+    color: #E63946;
+    background-color: #fff4;
+    transform: scale(1.1);
+}
+
+.fav-note-button:hover {
+    color: #FFA552;
+    background-color: #fff4;
+    transform: scale(1.1);
+}
+
+.check-button:hover {
+    background-color: #fff4;
+    transform: scale(1.1);
+    color: #4CDD50;
+}
+
+.note-header h2 {
+    color: #333;
+    margin: 0;
+    text-align: left;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 500;
+}
+
+.note-content {
+    flex-grow: 1;
+    overflow: hidden;
+    margin-top: 1rem;
+}
+
+.note-content p {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Ajusta este número según cuántas líneas quieres mostrar */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+    color: #444;
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+
+
+.note-footer {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+}
+
+.note-footer p {
+    font-style: italic;
+    color: #444;
+}
+
+.note-container.note-checked {
+    opacity: 0.6;
+    filter: grayscale(0.4);
+}
+
+
+
+
+
+.fav-note-button.faved-note-button {
+    color: #FFA552;
+    border-radius: 50%;
+}
+
+
+.note-enter {
+  animation: fadeInSlide 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.note-enter {
+  animation: fadeInSlide 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(0.9);
+  }
+}
+
+
+
+/* Modal Styles */
+.modal-delete-note {
+    position: absolute;
+    top: 40.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 10.8px;
+    box-shadow: 0 9px 36px rgba(0,0,0,0.15);
+    padding: 1.8rem;
+    border: none;
+    outline: none;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    width: 81%;
+    max-width: 450px;
+    max-height: 81vh;
+    overflow-y: auto;
+}
+
+.note-modal-content {
+    margin-bottom: 2rem;
+}
+
+.note-modal-header h3 {
+    color: #333;
+    margin: 0 0 1rem 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.note-modal-header p {
+    color: #666;
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.note-modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.note-modal-buttons button {
+    padding: 0.8rem 1.6rem;
+    border-radius: 6px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.note-modal-cancel-button {
+    background-color: #f5f5f5;
+    color: #666;
+}
+
+.note-modal-cancel-button:hover {
+    background-color: #e8e8e8;
+    color: #333;
+}
+
+.note-modal-delete-button {
+    background-color: #E63946;
+    color: white;
+}
+
+.note-modal-delete-button:hover {
+    background-color: #D32F2F;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(230, 57, 70, 0.3);
+}

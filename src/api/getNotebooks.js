@@ -1,11 +1,14 @@
 import { refreshToken } from "./refereshToken";
+import { API_BASE_URL } from './config';
+
+
 
 
 export async function getNotebooks() {
     const token = sessionStorage.getItem("tokenAccess");
 
     try {
-        const response = await fetch("http://127.0.0.1:8000/api/notebooks/", {
+        const response = await fetch(`${API_BASE_URL}/api/notebooks/`, {
             method: "GET",
             headers: {
                 'Authorization': `Bearer ${token}`,
@@ -20,7 +23,7 @@ export async function getNotebooks() {
         refreshToken();
         const retryToken = sessionStorage.getItem("tokenAccess");
         try {
-            const retryResponse = await fetch("http://127.0.0.1:8000/api/notebooks/", {
+            const retryResponse = await fetch(`${API_BASE_URL}/api/notebooks/`, {
                 method: "GET",
                 headers: {
                     'Authorization': `Bearer ${retryToken}`,

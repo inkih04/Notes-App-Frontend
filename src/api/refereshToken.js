@@ -1,6 +1,9 @@
-export async function refreshToken() {
+import { API_BASE_URL } from './config';
 
-    const response = await fetch("http://127.0.0.1:8000/api/token/refresh/",{
+export async function refreshToken() {
+    
+
+    const response = await fetch(`${API_BASE_URL}/api/token/refresh/`,{
             method:"POST",
             headers: {
                 "Content-Type": "application/json"

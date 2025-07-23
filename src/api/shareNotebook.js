@@ -1,10 +1,11 @@
 import { refreshToken } from "./refereshToken";
+import { API_BASE_URL } from './config';
 
 export async function shareNotebook(notebookId, email) {
     const token = sessionStorage.getItem("tokenAccess");
 
     try {
-        const response = await fetch(`http://127.0.0.1:8000/api/notebooks/${notebookId}/invite/`, {
+        const response = await fetch(`${API_BASE_URL}/api/notebooks/${notebookId}/invite/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -24,7 +25,7 @@ export async function shareNotebook(notebookId, email) {
         const retryToken = sessionStorage.getItem("tokenAccess");
 
         try {
-            const retryResponse = await fetch(`http://127.0.0.1:8000/api/notebooks/${notebookId}/invite/`, {
+            const retryResponse = await fetch(`${API_BASE_URL}/api/notebooks/${notebookId}/invite/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

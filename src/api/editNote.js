@@ -1,10 +1,11 @@
 import { refreshToken } from "./refereshToken";
+import { API_BASE_URL } from './config';
 
 export async function editNote(notebookId, noteId, title, content,  checked, color) {
     const token = sessionStorage.getItem("tokenAccess");
 
     try {
-        const response = await fetch(`http://127.0.0.1:8000/api/notebooks/${notebookId}/notes/${noteId}/`, {
+        const response = await fetch(`${API_BASE_URL}/api/notebooks/${notebookId}/notes/${noteId}/`, {
             method: "PATCH",
             headers: {
                 "Content-Type": 'application/json',
@@ -23,7 +24,7 @@ export async function editNote(notebookId, noteId, title, content,  checked, col
         const retryToken = sessionStorage.getItem("tokenAccess");
 
         try {
-            const retryResponse  =  await fetch(`http://127.0.0.1:8000/api/notebooks/${notebookId}/notes/${noteId}/`, {
+            const retryResponse  =  await fetch(`${API_BASE_URL}/api/notebooks/${notebookId}/notes/${noteId}/`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": 'application/json',

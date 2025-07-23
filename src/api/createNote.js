@@ -1,8 +1,9 @@
 import { refreshToken } from "./refereshToken";
+import { API_BASE_URL } from './config';
 
 export async function createNote(title, content, color, notebookId) {
     try {
-        const response = await fetch(`http://127.0.0.1:8000/api/notebooks/${notebookId}/notes/`, {
+        const response = await fetch(`${API_BASE_URL}/api/notebooks/${notebookId}/notes/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -21,7 +22,7 @@ export async function createNote(title, content, color, notebookId) {
         await refreshToken();
         const retryToken = sessionStorage.getItem("tokenAccess");
          try {
-            const response = await fetch(`http://127.0.0.1:8000/api/notebooks/${notebookId}/notes/`, {
+            const response = await fetch(`${API_BASE_URL}/api/notebooks/${notebookId}/notes/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

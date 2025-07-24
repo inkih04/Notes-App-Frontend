@@ -1,10 +1,13 @@
 import { refreshToken } from "./refereshToken";
+import { API_BASE_URL } from './config';
+
+
 
 export async function createFavourite(note) {
     const token = sessionStorage.getItem("tokenAccess");
 
     try {
-        const response = await fetch('http://127.0.0.1:8000/api/fav/notes/', {
+        const response = await fetch(`${API_BASE_URL}/api/fav/notes/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -24,7 +27,7 @@ export async function createFavourite(note) {
         const retryToken = sessionStorage.getItem("tokenAccess");
 
         try {
-            const retryResponse = await fetch('http://127.0.0.1:8000/api/notebooks/create/', {
+            const retryResponse = await fetch(`${API_BASE_URL}/api/fav/notes/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

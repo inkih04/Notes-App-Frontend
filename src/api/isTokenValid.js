@@ -1,7 +1,9 @@
+import { API_BASE_URL } from './config';
 
 export async function isTokenValid() {
+  
 
-  const response = await fetch("http://127.0.0.1:8000/api/auth/check-token/", {
+  const response = await fetch(`${API_BASE_URL}/api/auth/check-token/`, {
     method: "GET",
     headers: {
       "Authorization": `Bearer ${sessionStorage.getItem("tokenAccess")}`,

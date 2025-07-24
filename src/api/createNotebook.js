@@ -1,10 +1,12 @@
 import { refreshToken } from "./refereshToken";
+import { API_BASE_URL } from './config';
 
 export async function createNotebook(name, description, color) {
     const token = sessionStorage.getItem("tokenAccess");
+    
 
     try {
-        const response = await fetch('http://127.0.0.1:8000/api/notebooks/create/', {
+        const response = await fetch(`${API_BASE_URL}/api/notebooks/create/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -24,7 +26,7 @@ export async function createNotebook(name, description, color) {
         const retryToken = sessionStorage.getItem("tokenAccess");
 
         try {
-            const retryResponse = await fetch('http://127.0.0.1:8000/api/notebooks/create/', {
+            const retryResponse = await fetch(`${API_BASE_URL}/api/notebooks/create/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

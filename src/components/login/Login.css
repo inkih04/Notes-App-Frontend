@@ -11,11 +11,13 @@
 
 .login-container {
     margin-bottom: 4.5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #FAF15B;
+    background-color: var(--input-bg-color);
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -36,21 +38,35 @@
 .login-container button {
     margin-top: 0.2rem;
     margin-bottom: 1.2rem;
-    color: inherit;
-    background-color: #fffbac;
-}
-.login-container button:hover {
-    background-color: #e6e600;
-    transform: translateY(-4px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    color: white;
+    background-color: #8B4513;
     transition: transform 0.6s, box-shadow 0.6s, background-color 0.6s;
 }
+
+.login-container button:hover {
+    background-color: #A0522D;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 480px) {
+    .login-container button {
+        background-color: #A0522D;
+    }
+    
+    .login-container button:hover {
+        background-color: #CD853F;
+    }
+}
+
 .login-container button i {
     margin-right: 0.5rem;
 }
 
 .footer {
     font-style: italic;
-    font-weight: lighter;
+    font-weight: 300;
+    color: #2c2c2c;
+    text-align: center;
 }
 

@@ -5,7 +5,7 @@
     align-items: center;
     padding: 0.9rem 1.08rem;
     margin-right: 4.5rem;
-    background-color: #FAF15B;
+    background-color: var(--input-bg-color);
     box-shadow: 0 4px 4px 0 rgba(4, 4, 4, 0.08);
     border-radius: 4.5px;
     border: none;
@@ -128,7 +128,7 @@
     font-size: 1rem;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
     font-family: inherit;
-    background-color: #f0e850;
+    background-color: var(--input-bg-color);
     color:#222;
 }
 
@@ -216,7 +216,7 @@
 }
 
 .submit-btn {
-    background-color: #FAF15B;
+    background-color: var(--input-bg-color);
     color: #333;
 }
 

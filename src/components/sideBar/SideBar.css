@@ -1,5 +1,5 @@
 .sidebar {
-    background-color: #FAF15B;
+    background-color: var(--input-bg-color);
     border-top-right-radius: 24.3px;
     border-bottom-right-radius: 24.3px;
     padding: 0.81rem;

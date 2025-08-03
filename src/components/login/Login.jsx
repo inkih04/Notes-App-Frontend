@@ -5,15 +5,53 @@ import { loginWithGoogleCode } from "../../api/auth.js";
 import { useNavigate } from "react-router-dom";
 import { isTokenValid } from "../../api/isTokenValid.js"
 import { useEffect, useState } from "react";
-import { CircularProgress } from '@mui/material';
+import { CircularProgress, LinearProgress } from '@mui/material';
 
 function Login() {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
+  const [serverStatus, setServerStatus] = useState('checking'); // 'checking', 'ready', 'error'
+  const [serverProgress, setServerProgress] = useState(0);
+  const [currentAttempt, setCurrentAttempt] = useState(0);
+
+ 
+  const checkServerStatus = async () => {
+    const maxAttempts = 30; 
+    const interval = 2000; 
+    let attempts = 0;
+
+    const checkServer = async () => {
+      attempts++;
+      setCurrentAttempt(attempts);
+      
+      const progress = (attempts / maxAttempts) * 100;
+      setServerProgress(progress);
+
+      try {
+        const isValid = await isTokenValid();
+        if (!isValid) {
+          setServerProgress(100);
+          setServerStatus('ready');
+          return
+        }
+      } catch (error) {
+        console.log(`Intento ${attempts}/${maxAttempts}: Error de conexión`);
+      }
+
+      if (attempts < maxAttempts) {
+        setTimeout(checkServer, interval);
+      } else {
+        setServerProgress(100);
+        setServerStatus('ready');
+      }
+    };
+
+    checkServer();
+  };
 
   useEffect(() => {
-    isTokenValid();
-  }, [])
+    checkServerStatus();
+  }, []);
 
   const login = useGoogleLogin({
     flow: 'auth-code',
@@ -48,7 +86,7 @@ function Login() {
         <button 
           className="social-btn" 
           onClick={() => login()}
-          disabled={isLoading}
+          disabled={isLoading || serverStatus !== 'ready'}
         >
           <i className="fab fa-google"></i>
           Continue with Google
@@ -56,13 +94,35 @@ function Login() {
         <div className="footer">
           By signing up, you agree to our Terms of Service and Privacy Policy.
         </div>
+        
+        {serverStatus === 'checking' && (
+          <div className="server-status">
+            <div className="bar-container">
+              <LinearProgress 
+                variant="determinate" 
+                value={serverProgress}
+              />
+              <span style={{ fontSize: '12px', color: '#666' }}>
+                {Math.round(serverProgress)}%
+              </span>
+            </div>
+            <p>Connecting to server... </p>
+          </div>
+        )}
+        
+        {serverStatus === 'ready' && (
+          <div className="server-status" style={{ color: 'green', fontSize: '14px' }}>
+            ✓ Server ready
+          </div>
+        )}
       </div>
+      
       {isLoading && (
         <div className="loading-overlay">
           <div className="loading-content">
             <CircularProgress />
             <h2>Loading...</h2>
-            <p>Conecting to the server...</p>
+            <p>Connecting to the server...</p>
           </div>
         </div>
       )}

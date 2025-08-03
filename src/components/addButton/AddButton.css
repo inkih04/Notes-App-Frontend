@@ -5,7 +5,7 @@
     align-items: center;
     padding: 0.9rem 1.08rem;
     margin-right: 4.5rem;
-    background-color: var(--input-bg-color);;
+    background-color: var(--input-bg-color);
     box-shadow: 0 4px 4px 0 rgba(4, 4, 4, 0.08);
     border-radius: 4.5px;
     border: none;
@@ -49,6 +49,10 @@
 @media (max-width: 950px) {
     .p-hidden {
         display: none;
+    }
+
+    .add-notebooks {
+        margin-right: 0.5rem important;
     }
 }
 

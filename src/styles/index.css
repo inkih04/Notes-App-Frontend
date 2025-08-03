@@ -13,6 +13,11 @@
   --input-bg-color: #F7DC6F; 
 }
 
+html, body {
+    touch-action: manipulation;
+    -webkit-text-size-adjust: 100%;
+}
+
 @media (max-width: 480px) {
   :root {
     background: #fdfae6; 

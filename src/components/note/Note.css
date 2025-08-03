@@ -30,7 +30,9 @@
     padding-bottom: 0.4rem;
     gap: 1rem;
     border-bottom: 0.4rem solid #FAFAFA;
+    width: 100%;
 }
+
 
 .note-buttons button {
     padding: 0.2rem;

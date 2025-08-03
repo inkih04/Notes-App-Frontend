@@ -3,6 +3,12 @@ import "../../api/auth.js"
 import { useGoogleLogin } from '@react-oauth/google';
 import { loginWithGoogleCode } from "../../api/auth.js";
 import { useNavigate } from "react-router-dom";
+import {isTokenValid} from "../../api/isTokenValid.js"
+import { useEffect } from "react";
+
+useEffect(() => {
+  isTokenValid();
+}, [])
 
 
 function Login() {

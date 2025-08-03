@@ -97,6 +97,7 @@
     
     .notebook-header {
         gap: 0.25rem;
+        margin-top: 0.2rem;
     }
     
     .notebook-actions {

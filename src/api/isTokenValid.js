@@ -23,6 +23,8 @@ export async function isTokenValid() {
       console.log("Timeout: servidor no responde en este intento.");
       throw new Error("Timeout: Server waking up");
     }
-    throw new Error(`Connection error: ${error.message}`);
+    if (response.status === 401) {
+      return false;
+    }
   }
 }

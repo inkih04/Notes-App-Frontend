@@ -419,6 +419,9 @@
         height: 70vh;
         min-width: 300px;
     }
+    .note-footer {
+        width: 100%;
+    }
     
     .edit-modal-header,
     .edit-modal-content,

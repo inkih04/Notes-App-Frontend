@@ -12,3 +12,4 @@ export async function isTokenValid() {
 
     return response.ok;    
 }
+

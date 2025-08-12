@@ -5,7 +5,7 @@ export async function isServerUp() {
     const timeoout = setTimeout( () => controller.abort(), 2500);
 
     try {
-        const response = await fetch(`${API_BASE_URL}/ping/`, {
+        const response = await fetch(`${API_BASE_URL}/api/ping/`, {
             method: "GET",
             signal: controller.signal
 

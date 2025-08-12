@@ -3,7 +3,7 @@ import "../../api/auth.js"
 import { useGoogleLogin } from '@react-oauth/google';
 import { loginWithGoogleCode } from "../../api/auth.js";
 import { useNavigate } from "react-router-dom";
-import { isTokenValid } from "../../api/isTokenValid.js"
+import { isServerUp } from "../../api/isServerUp.js"
 import { useEffect, useState } from "react";
 import { CircularProgress, LinearProgress } from '@mui/material';
 
@@ -15,39 +15,34 @@ function Login() {
   const [currentAttempt, setCurrentAttempt] = useState(0);
 
  
-  const checkServerStatus = async () => {
-    const maxAttempts = 30; 
-    const interval = 2000; 
-    let attempts = 0;
+const checkServerStatus = async () => {
+  const maxAttempts = 30;
+  const interval = 2000;
+  let attempts = 0;
 
-    const checkServer = async () => {
-      attempts++;
-      setCurrentAttempt(attempts);
-      
-      const progress = (attempts / maxAttempts) * 100;
-      setServerProgress(progress);
+  const checkServer = async () => {
+    attempts++;
+    setCurrentAttempt(attempts);
 
-      try {
-        const isValid = await isTokenValid();
-        if (!isValid) {
-          setServerProgress(100);
-          setServerStatus('ready');
-          return
-        }
-      } catch (error) {
-        console.log(`Intento ${attempts}/${maxAttempts}: Error de conexión`);
-      }
+    const progress = (attempts / maxAttempts) * 100;
+    setServerProgress(progress);
 
-      if (attempts < maxAttempts) {
-        setTimeout(checkServer, interval);
-      } else {
-        setServerProgress(100);
-        setServerStatus('ready');
-      }
-    };
+    const serverReady = await isServerUp();
+    if (serverReady) {
+      setServerProgress(100);
+      setServerStatus('ready');
+      return;
+    }
 
-    checkServer();
+    if (attempts < maxAttempts) {
+      setTimeout(checkServer, interval);
+    } else {
+      setServerStatus('error');
+    }
   };
+
+  checkServer();
+};
 
   useEffect(() => {
     checkServerStatus();
